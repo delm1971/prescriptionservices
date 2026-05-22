@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prescription Services Guide | Compare Lower-Cost Prescription Options</title>
+  <meta name="description" content="A consumer-friendly guide to comparing prescription services, mail-order options, and potential medication savings through Border Free Health." />
+  <meta name="robots" content="index, follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #146c94;
+      --primary-dark: #0f4f6c;
+      --accent: #21a67a;
+      --accent-dark: #15845f;
+      --warning: #fff8e7;
+      --text: #18313f;
+      --muted: #607281;
+      --light: #f5f9fb;
+      --border: #dce8ee;
+      --white: #ffffff;
+      --shadow: 0 20px 50px rgba(15, 79, 108, 0.14);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Inter', Arial, sans-serif;
+      color: var(--text);
+      background: #ffffff;
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    .container { width: min(1120px, calc(100% - 36px)); margin: 0 auto; }
+
+    .top-disclosure {
+      background: #0d3345;
+      color: #dceff7;
+      font-size: 13px;
+      padding: 9px 0;
+      text-align: center;
+    }
+    .top-disclosure strong { color: #ffffff; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      gap: 18px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      font-size: 20px;
+    }
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 900;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .nav-links a { text-decoration: none; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      background: var(--accent);
+      color: white;
+      font-weight: 800;
+      border: 0;
+      box-shadow: 0 12px 24px rgba(33,166,122,.22);
+      transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+      cursor: pointer;
+    }
+    .btn:hover { transform: translateY(-2px); background: var(--accent-dark); box-shadow: 0 16px 28px rgba(33,166,122,.3); }
+    .btn-secondary { background: var(--primary); box-shadow: 0 12px 24px rgba(20,108,148,.22); }
+    .btn-secondary:hover { background: var(--primary-dark); }
+
+    .hero {
+      background:
+        radial-gradient(circle at top right, rgba(33,166,122,0.16), transparent 36%),
+        linear-gradient(180deg, #eef8fb 0%, #ffffff 74%);
+      padding: 62px 0 36px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.06fr .94fr;
+      align-items: center;
+      gap: 44px;
+    }
+    .label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #e8f8f2;
+      color: #12684f;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-size: clamp(38px, 6vw, 64px);
+      line-height: .98;
+      letter-spacing: -0.06em;
+      margin: 0 0 18px;
+      color: #102b3a;
+    }
+    .subhead {
+      font-size: 20px;
+      color: #445b69;
+      margin: 0 0 26px;
+      max-width: 680px;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-bottom: 22px; }
+    .microcopy { color: var(--muted); font-size: 13px; max-width: 640px; }
+    .trust-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 28px; }
+    .trust-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: 0 10px 22px rgba(15,79,108,.06);
+    }
+    .trust-card strong { display: block; font-size: 16px; margin-bottom: 4px; }
+    .trust-card span { color: var(--muted); font-size: 13px; }
+
+    .hero-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 8px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+    }
+    .card-title { font-size: 24px; line-height: 1.15; margin: 8px 0 14px; letter-spacing: -0.03em; }
+    .check-list { padding: 0; margin: 18px 0 0; list-style: none; }
+    .check-list li {
+      display: flex;
+      gap: 12px;
+      margin: 13px 0;
+      align-items: flex-start;
+      color: #334b58;
+    }
+    .check {
+      width: 24px; height: 24px; min-width: 24px;
+      border-radius: 50%;
+      background: #e8f8f2;
+      color: var(--accent-dark);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      font-size: 14px;
+    }
+    .search-box {
+      margin-top: 22px;
+      padding: 16px;
+      background: var(--light);
+      border-radius: 20px;
+      border: 1px solid var(--border);
+    }
+    .search-box label { font-size: 13px; font-weight: 800; color: var(--muted); display: block; margin-bottom: 8px; }
+    .fake-input {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 13px 14px;
+      color: #778894;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .section { padding: 72px 0; }
+    .section.alt { background: var(--light); }
+    .section-title {
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1.05;
+      letter-spacing: -0.05em;
+      margin: 0 0 14px;
+      color: #102b3a;
+    }
+    .section-intro { max-width: 760px; color: var(--muted); font-size: 18px; margin: 0 0 34px; }
+
+    .article-layout {
+      display: grid;
+      grid-template-columns: 1fr 330px;
+      gap: 34px;
+      align-items: start;
+    }
+    .article {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 34px;
+      box-shadow: 0 16px 40px rgba(15,79,108,.08);
+    }
+    .article h2, .article h3 { letter-spacing: -0.035em; line-height: 1.12; color: #102b3a; }
+    .article h2 { font-size: 34px; margin: 8px 0 16px; }
+    .article h3 { font-size: 25px; margin: 34px 0 12px; }
+    .article p { color: #435764; font-size: 17px; }
+    .pullquote {
+      border-left: 5px solid var(--accent);
+      background: #f0fbf6;
+      padding: 18px 20px;
+      border-radius: 0 18px 18px 0;
+      margin: 28px 0;
+      font-size: 19px;
+      color: #173c2f;
+      font-weight: 700;
+    }
+    .sidebar {
+      position: sticky;
+      top: 88px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: 0 16px 40px rgba(15,79,108,.09);
+    }
+    .sidebar h3 { margin: 0 0 8px; font-size: 22px; letter-spacing: -0.03em; }
+    .sidebar p { color: var(--muted); font-size: 14px; margin: 0 0 18px; }
+
+    .comparison {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 18px;
+      margin: 24px 0;
+      border: 1px solid var(--border);
+    }
+    .comparison th, .comparison td { padding: 16px; text-align: left; border-bottom: 1px solid var(--border); font-size: 15px; }
+    .comparison th { background: #eef8fb; color: #173b4d; }
+    .comparison tr:last-child td { border-bottom: 0; }
+    .comparison td:first-child { font-weight: 800; }
+
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .step {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 14px 32px rgba(15,79,108,.07);
+    }
+    .num {
+      width: 42px; height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+    .step h3 { margin: 0 0 10px; font-size: 22px; letter-spacing: -0.03em; }
+    .step p { margin: 0; color: var(--muted); }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .info-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 14px 32px rgba(15,79,108,.07);
+    }
+    .info-card h3 { margin: 0 0 8px; font-size: 23px; letter-spacing: -0.035em; }
+    .info-card p { color: var(--muted); margin: 0; }
+
+    .faq { max-width: 860px; }
+    details {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px 20px;
+      margin-bottom: 12px;
+      box-shadow: 0 10px 24px rgba(15,79,108,.05);
+    }
+    summary { cursor: pointer; font-weight: 800; color: #143747; }
+    details p { color: var(--muted); margin-bottom: 0; }
+
+    .cta-band {
+      background: linear-gradient(135deg, #0f4f6c, #14825f);
+      color: white;
+      border-radius: 30px;
+      padding: 42px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+    .cta-band h2 { margin: 0 0 10px; font-size: clamp(28px, 4vw, 44px); line-height: 1.05; letter-spacing: -0.05em; }
+    .cta-band p { margin: 0; color: #d8f2ec; font-size: 17px; }
+    .cta-band .btn { background: white; color: #11614a; box-shadow: none; }
+    .cta-band .btn:hover { background: #eaf7f2; }
+
+    .legal {
+      background: #0d3345;
+      color: #c6d9e2;
+      padding: 36px 0;
+      font-size: 13px;
+    }
+    .legal a { color: white; }
+    .legal-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 30px; }
+    .legal h3 { color: white; margin: 0 0 10px; }
+    .legal p { margin: 0 0 12px; }
+
+    .floating-cta {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255,255,255,.96);
+      border-top: 1px solid var(--border);
+      padding: 10px 18px;
+      box-shadow: 0 -12px 30px rgba(15,79,108,.12);
+      z-index: 100;
+      display: none;
+    }
+    .floating-inner {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .floating-inner strong { font-size: 14px; }
+    .floating-inner span { display: block; font-size: 12px; color: var(--muted); }
+
+    @media (max-width: 900px) {
+      .hero-grid, .article-layout, .grid-2, .legal-grid, .cta-band { grid-template-columns: 1fr; }
+      .steps, .trust-row { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .sidebar { position: static; }
+      .cta-band { text-align: left; }
+      .floating-cta { display: block; }
+      body { padding-bottom: 84px; }
+    }
+    @media (max-width: 560px) {
+      .container { width: min(100% - 24px, 1120px); }
+      .hero { padding-top: 38px; }
+      .article, .hero-card, .cta-band { padding: 24px; border-radius: 22px; }
+      .comparison th, .comparison td { padding: 12px; font-size: 13px; }
+      .btn { width: 100%; padding: 14px 18px; }
+      .floating-inner .btn { width: auto; white-space: nowrap; padding: 12px 14px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-disclosure">
+    <div class="container"><strong>Affiliate Disclosure:</strong> This page contains affiliate links. We may earn a commission if you purchase through our links, at no extra cost to you.</div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <div class="brand" aria-label="Prescription Services Guide">
+        <div class="brand-mark">Rx</div>
+        <span>Prescription Services Guide</span>
+      </div>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#guide">Guide</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn" href="https://borderfreehealth.com/?a_aid=6ya6d4fkp5x5e" rel="nofollow sponsored noopener" target="_blank">Check Medication Options</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="label">Consumer Guide • Prescription Services</div>
+          <h1>Prescription costs keep rising. Many patients are now comparing online options.</h1>
+          <p class="subhead">Before paying full retail price at a local pharmacy, consumers are exploring prescription services that help them compare access, pricing, and mail-order fulfillment options for eligible medications.</p>
+          <div class="hero-actions">
+            <a class="btn" href="https://borderfreehealth.com/?a_aid=6ya6d4fkp5x5e" rel="nofollow sponsored noopener" target="_blank">Visit Border Free Health</a>
+            <a class="btn btn-secondary" href="#guide">Read the Guide</a>
+          </div>
+          <p class="microcopy">This educational guide is not medical advice. Always speak with your licensed healthcare provider before starting, stopping, or changing any medication.</p>
+          <div class="trust-row">
+            <div class="trust-card"><strong>Compare Options</strong><span>Review prescription service alternatives before ordering.</span></div>
+            <div class="trust-card"><strong>Mail-Order Focus</strong><span>Useful for patients managing ongoing prescriptions.</span></div>
+            <div class="trust-card"><strong>Consumer Education</strong><span>Learn what to check before choosing any pharmacy service.</span></div>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Prescription checklist">
+          <h2 class="card-title">What smart consumers check before paying for prescriptions</h2>
+          <ul class="check-list">
+            <li><span class="check">✓</span><span>Is there a lower-cost option for the same prescribed medication?</span></li>
+            <li><span class="check">✓</span><span>Can the order be fulfilled through a licensed pharmacy partner?</span></li>
+            <li><span class="check">✓</span><span>What prescription documentation is required before shipment?</span></li>
+            <li><span class="check">✓</span><span>How long does delivery typically take?</span></li>
+            <li><span class="check">✓</span><span>Is the service appropriate for ongoing maintenance medications?</span></li>
+          </ul>
+          <div class="search-box">
+            <label>Start with your medication name</label>
+            <div class="fake-input"><span>Example: diabetes, heart, asthma, cholesterol...</span><span>→</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section alt" id="guide">
+      <div class="container article-layout">
+        <article class="article">
+          <p class="label">Advertorial Consumer Report</p>
+          <h2>Why prescription services are getting more attention from everyday patients</h2>
+          <p>For many households, prescription medication is no longer a small monthly expense. People managing chronic conditions may need the same medications month after month, and even a modest price difference can become meaningful over time.</p>
+          <p>That is why more consumers are comparing prescription services before they refill. Instead of assuming the local pharmacy price is the only option, they are checking whether an online prescription service can help them find eligible medication options through licensed pharmacy fulfillment channels.</p>
+
+          <div class="pullquote">The goal is simple: compare before you pay, understand the process, and confirm the service fits your prescription needs.</div>
+
+          <h3>Where Border Free Health fits in</h3>
+          <p>Border Free Health is designed for consumers who want to explore prescription medication options online. It may be especially relevant for patients who regularly purchase maintenance medications and want to compare availability and potential savings opportunities.</p>
+          <p>Like any prescription service, customers should review eligibility, required prescription documentation, shipping timelines, pharmacy details, and medication availability before placing an order.</p>
+
+          <table class="comparison" aria-label="Prescription service comparison table">
+            <thead>
+              <tr>
+                <th>What to Compare</th>
+                <th>Why It Matters</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Medication availability</td>
+                <td>Not every medication, dosage, or format may be available through every service.</td>
+              </tr>
+              <tr>
+                <td>Prescription requirement</td>
+                <td>Legitimate prescription services require valid prescription information.</td>
+              </tr>
+              <tr>
+                <td>Shipping timeline</td>
+                <td>Mail-order services may not be ideal for emergency or same-day medication needs.</td>
+              </tr>
+              <tr>
+                <td>Final price</td>
+                <td>Review product price, shipping, quantity, and any applicable fees before checkout.</td>
+              </tr>
+              <tr>
+                <td>Customer support</td>
+                <td>Support can help clarify order steps, documentation, and refill questions.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Who may benefit from comparing prescription services?</h3>
+          <p>Online prescription comparison may be useful for consumers who take recurring medications, have high out-of-pocket costs, are uninsured or underinsured, or simply want to understand whether there are more affordable options available.</p>
+          <p>It is generally not intended for urgent medication needs. If you need medication immediately, speak with your doctor, pharmacist, or emergency care provider.</p>
+
+          <h3>Important safety reminder</h3>
+          <p>Do not change your prescribed medication, dosage, or refill schedule without speaking to your healthcare provider. This page is for educational and advertising purposes only and does not provide medical diagnosis, treatment, or pharmacy advice.</p>
+
+          <p><a class="btn" href="https://borderfreehealth.com/?a_aid=6ya6d4fkp5x5e" rel="nofollow sponsored noopener" target="_blank">Check Border Free Health Options</a></p>
+        </article>
+
+        <aside class="sidebar">
+          <h3>Ready to compare?</h3>
+          <p>Visit Border Free Health to search medication options, review the ordering process, and see whether the service fits your needs.</p>
+          <a class="btn" href="https://borderfreehealth.com/?a_aid=6ya6d4fkp5x5e" rel="nofollow sponsored noopener" target="_blank">Visit Border Free Health</a>
+          <ul class="check-list">
+            <li><span class="check">✓</span><span>Search medication options</span></li>
+            <li><span class="check">✓</span><span>Review prescription requirements</span></li>
+            <li><span class="check">✓</span><span>Compare potential savings</span></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="how-it-works">
+      <div class="container">
+        <h2 class="section-title">How the process usually works</h2>
+        <p class="section-intro">Exact steps can vary by medication and prescription requirements, but most consumers should expect a simple comparison and order review process.</p>
+        <div class="steps">
+          <div class="step">
+            <div class="num">1</div>
+            <h3>Search your medication</h3>
+            <p>Start by looking up the medication name, dosage, and quantity so you can compare relevant options.</p>
+          </div>
+          <div class="step">
+            <div class="num">2</div>
+            <h3>Review requirements</h3>
+            <p>Confirm prescription documentation, availability, final cost, and estimated delivery details before ordering.</p>
+          </div>
+          <div class="step">
+            <div class="num">3</div>
+            <h3>Place an eligible order</h3>
+            <p>Complete the service’s required steps and keep your healthcare provider involved in medication decisions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <h2 class="section-title">Best uses for this type of service</h2>
+        <p class="section-intro">Prescription services are best evaluated as part of a broader medication cost strategy. They may work well for some patients and not for others.</p>
+        <div class="grid-2">
+          <div class="info-card">
+            <h3>Good fit for many consumers</h3>
+            <p>Ongoing maintenance prescriptions, planned refills, price comparison, and consumers who have time to review mail-order delivery options.</p>
+          </div>
+          <div class="info-card">
+            <h3>Not ideal for urgent needs</h3>
+            <p>Same-day medications, emergency prescriptions, new symptoms, medication changes, or situations requiring immediate pharmacist support.</p>
+          </div>
+          <div class="info-card">
+            <h3>Helpful for cost research</h3>
+            <p>Use online comparison to understand potential alternatives before paying out-of-pocket retail prices.</p>
+          </div>
+          <div class="info-card">
+            <h3>Requires responsible review</h3>
+            <p>Always verify medication details, prescription requirements, shipping, refund policies, and customer support before ordering.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container faq">
+        <h2 class="section-title">Frequently asked questions</h2>
+        <details>
+          <summary>Is this medical advice?</summary>
+          <p>No. This page is educational advertising content. Always consult your licensed healthcare provider for medication decisions.</p>
+        </details>
+        <details>
+          <summary>Do I still need a prescription?</summary>
+          <p>Legitimate prescription services generally require valid prescription documentation for prescription medications. Review Border Free Health’s current requirements before ordering.</p>
+        </details>
+        <details>
+          <summary>Can I use this for urgent prescriptions?</summary>
+          <p>Mail-order prescription services are generally not appropriate for emergency or same-day medication needs.</p>
+        </details>
+        <details>
+          <summary>Will I save money?</summary>
+          <p>Savings are not guaranteed. Prices depend on medication, dosage, quantity, availability, shipping, and other factors. Always compare the final total before checkout.</p>
+        </details>
+        <details>
+          <summary>What should I check before ordering?</summary>
+          <p>Check medication name, strength, quantity, prescription requirements, pharmacy fulfillment details, shipping timelines, customer support, refund policies, and total cost.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta-band">
+          <div>
+            <h2>Compare prescription options before your next refill.</h2>
+            <p>Search eligible medication options and review the ordering process through Border Free Health.</p>
+          </div>
+          <a class="btn" href="https://borderfreehealth.com/?a_aid=6ya6d4fkp5x5e" rel="nofollow sponsored noopener" target="_blank">Start Comparing</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="legal">
+    <div class="container legal-grid">
+      <div>
+        <h3>Prescription Services Guide</h3>
+        <p>This website is an independent affiliate advertorial and is not owned by Border Free Health unless otherwise stated. We may receive compensation when visitors click links and make purchases.</p>
+        <p>No content on this page should be interpreted as medical, legal, financial, or pharmacy advice.</p>
+      </div>
+      <div>
+        <h3>Compliance Notes</h3>
+        <p>Always consult a licensed healthcare professional before making medication decisions. Do not delay or disregard professional medical advice because of anything you read on this page.</p>
+        <p>Prescription availability, pricing, shipping, and eligibility can change at any time. Review all details directly on the provider’s website.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="floating-cta" aria-label="Mobile call to action">
+    <div class="floating-inner">
+      <div>
+        <strong>Compare prescription options</strong>
+        <span>Visit Border Free Health</span>
+      </div>
+      <a class="btn" href="https://borderfreehealth.com/?a_aid=6ya6d4fkp5x5e" rel="nofollow sponsored noopener" target="_blank">Compare</a>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (event) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          event.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
